@@ -27,6 +27,7 @@ http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/
 FROM flights]]></db:parameterized-query>
         </db:select>
         <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
         <jms:outbound-endpoint queue="flights" connector-ref="Active_MQ" doc:name="JMS: flights"/>
     </flow>
     <flow name="logFlights">
